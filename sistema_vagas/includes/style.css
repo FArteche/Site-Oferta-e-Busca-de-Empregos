@@ -1,0 +1,230 @@
+/* Geral */
+
+body.bg-user {
+    background-image: url('images/bg_user.jpg');
+}
+
+/* Classe para o fundo das páginas de administrador */
+body.bg-admin {
+    background-image: url('images/bg_admin.jpg');
+}
+
+/* Estilos COMUNS para ambos os fundos */
+.bg-user, .bg-admin {
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-attachment: fixed; /* Efeito parallax: o fundo fica fixo enquanto o conteúdo rola */
+}
+
+/* O TRUQUE DO OVERLAY: Melhora a legibilidade do conteúdo */
+.bg-user::before, .bg-admin::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Cor preta com 40% de opacidade */
+    z-index: -1; /* Coloca o overlay ATRÁS de todo o conteúdo */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #0056b3;
+}
+
+/* Header/Painel */
+.header {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #343a40;
+}
+.header a.logout {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+/* Formulários */
+.form-container {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #343a40;
+}
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="url"],
+form input[type="number"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box; /* Importante */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+form button, .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+form button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Tabelas (Admin) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+th, td {
+    padding: 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+/* Status e Botões de Ação */
+.status-ativa { color: #28a745; font-weight: bold; }
+.status-desativada { color: #dc3545; font-weight: bold; }
+.btn-toggle {
+    padding: 0.3rem 0.6rem;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+.btn-ativar { background-color: #28a745; }
+.btn-desativar { background-color: #ffc107; color: #333; }
+
+/* Cards de Vagas (Usuário) */
+.job-listing {
+    display: grid;
+    gap: 1.5rem;
+}
+.job-card {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+.job-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+.job-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.job-card .job-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+.job-card .job-meta span {
+    margin-right: 1.5rem;
+}
+.job-card p {
+    margin-bottom: 1.5rem;
+}
+.job-card .btn-apply {
+    width: auto;
+    padding: 0.6rem 1.2rem;
+}
+.job-card button[disabled] {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Candidato Card */
+.candidato-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.candidato-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
